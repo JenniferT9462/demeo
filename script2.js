@@ -12,7 +12,7 @@ const output = document.getElementById("output");
 async function fetchQuotes(event) {
   event.preventDefault();
 
-  const form = event.target;
+  const form = e.target;
   const searchType = form.elements.searchType.value;
   const searchQuery = form.elements.searchQuery.value;
 
@@ -45,6 +45,43 @@ async function fetchQuotes(event) {
            <p>Author: ${quoteData.author}</p>
         </div>
   `;
+}
+
+const quoteForm = document.getElementById("quote-form");
+quoteForm.onsubmit = searchQuotes;
+
+async function searchQuotes(e){
+    e.preventDefault();
+    const form = event.target;
+    const isInspirationChecked = form.elements.inspiration.checked;
+    const isMotivationChecked = form.elements.motivation.checked;
+    const inspiration = form.elements.inspiration.value;
+    const motivation = form.elements.motivation.value;
+
+    let query = "";
+    if(isInspirationChecked){
+      query = inspiration;
+    
+    }
+
+    if (isMotivationChecked) {
+      query = motivation;
+      
+    }
+
+  
+    const data = {
+      searchtype: "SEARCH",
+      query: query,
+    }
+    const dataString = new URLSearchParams(data);
+    try {
+      const response = await fetch(base_url + "&" + dataString);
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+        console.error("There was an error fetching quotes", error);
+    }
 }
 
 
