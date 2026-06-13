@@ -89,28 +89,3 @@ async function searchQuotes(e){
 
 
 
-//This checks whether the API returned an array (author/keyword search)
-// or a plain object (random quote), and pulls the data correctly either way.
-// const quote = Array.isArray(result.result) ? result.result[0] : result.result;
-
-//    const dataReceived = await response.json();
-//     console.log(dataReceived);
-
-//     const quotes = dataReceived.result;
-//     console.log(quotes);
-
-//     let limitedQuotes = [];
-//     if(quotes.length > 5){
-//         limitedQuotes = quotes.slice(0, 5);
-
-//     }
-
-//    for(let i = 0; i < limitedQuotes.length; i++) {
-//         output.innerHTML += `
-//             <div>
-//                 <h2>Quote: ${limitedQuotes[i].quote}</h2>
-//                 <p>Author: ${limitedQuotes[i].author}</p>
-
-//             </div>
-
-//     `;
